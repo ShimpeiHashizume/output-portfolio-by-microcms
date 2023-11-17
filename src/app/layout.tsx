@@ -1,11 +1,22 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Montserrat, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/component/Navbar/Navbar";
 import Footer from "@/component/Footer/Footer";
 import { ThemeProider } from "@/context/ThemeContext";
 
-const inter = Inter({ subsets: ["latin"] });
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+  display: "swap",
+});
+
+const notojp = Noto_Sans_JP({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-notojp",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,12 +25,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="ja">
+      <body className={`${montserrat.variable} ${notojp.variable}`}>
         <ThemeProider>
           <div className="container">
             <Navbar />
-            <main>{children}</main>
+            <main className="main">{children}</main>
             <Footer />
           </div>
         </ThemeProider>
