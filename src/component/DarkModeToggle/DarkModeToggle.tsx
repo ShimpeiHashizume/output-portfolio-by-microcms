@@ -4,8 +4,10 @@ import React, { useContext } from "react";
 import styles from "./DarkModeToggle.module.css";
 import { ThemeContext } from "@/context/ThemeContext";
 
-const DarkModeToggle = () => {
-  const { toggle, mode }: any = useContext(ThemeContext);
+const DarkModeToggle: React.FC = () => {
+  const contextValue = useContext(ThemeContext);
+
+  const { toggle, mode } = contextValue as { toggle: () => void; mode: string };
 
   return (
     <button className={styles.button} onClick={toggle}>
