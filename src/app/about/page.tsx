@@ -2,6 +2,7 @@ import React from "react";
 import PageTitle from "@/component/PageTitle/PageTitle";
 import styles from "./page.module.css";
 import Image from "next/image";
+import SkillItem from "@/component/SkillItem/SkillItem";
 
 const programmingLanguage = [
   {
@@ -82,50 +83,10 @@ const About = () => {
       <section className={styles.skill}>
         <h2 className={styles.title}>スキル</h2>
         <div className={styles.skillWrap}>
-          <div className={styles.skillBox}>
-            <h3 className={styles.subTitle}>言語</h3>
-            <ul className={styles.skillList}>
-              {programmingLanguage.map((item) => (
-                <li key={item.id} className={styles.skillItem}>
-                  <span className={styles.skillTitle}>{item.name}</span>
-                  <span className={styles.skillYears}>{item.years}年</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className={styles.skillBox}>
-            <h3 className={styles.subTitle}>フレームワーク</h3>
-            <ul className={styles.skillList}>
-              {framework.map((item) => (
-                <li key={item.id} className={styles.skillItem}>
-                  <span className={styles.skillTitle}>{item.name}</span>
-                  <span className={styles.skillYears}>{item.years}年</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className={styles.skillBox}>
-            <h3 className={styles.subTitle}>デザインツール</h3>
-            <ul className={styles.skillList}>
-              {designTools.map((item) => (
-                <li key={item.id} className={styles.skillItem}>
-                  <span className={styles.skillTitle}>{item.name}</span>
-                  <span className={styles.skillYears}>{item.years}年</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className={styles.skillBox}>
-            <h3 className={styles.subTitle}>その他ツール</h3>
-            <ul className={styles.skillList}>
-              {otherTools.map((item) => (
-                <li key={item.id} className={styles.skillItem}>
-                  <span className={styles.skillTitle}>{item.name}</span>
-                  <span className={styles.skillYears}>{item.years}年</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <SkillItem skillInfo={programmingLanguage} />
+          <SkillItem skillInfo={framework} />
+          <SkillItem skillInfo={designTools} />
+          <SkillItem skillInfo={otherTools} />
         </div>
       </section>
     </div>

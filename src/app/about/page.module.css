@@ -23,25 +23,8 @@
   line-height: 2;
   word-break: break-all;
 }
-.subTitle {
-  font-size: 20px;
-  font-weight: 700;
-  margin: 0 0 16px;
-}
 .skillWrap {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 24px 40px;
-}
-.skillList {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.skillItem {
-  font-family: var(--font-notojp);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 16px;
 }
