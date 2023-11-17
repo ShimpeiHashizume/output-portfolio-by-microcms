@@ -14,7 +14,6 @@ const Navbar = () => {
           </Link>
         </h1>
         <nav className={styles.navigation}>
-          <DarkModeToggle />
           <ul className={styles.navigationList}>
             {navList.map((item) => (
               <li key={item.id} className={styles.navigationItem}>
@@ -24,6 +23,7 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
+          <DarkModeToggle />
         </nav>
       </div>
     </header>
