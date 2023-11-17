@@ -3,8 +3,9 @@ import PageTitle from "@/component/PageTitle/PageTitle";
 import styles from "./page.module.css";
 import Image from "next/image";
 import SkillItem from "@/component/SkillItem/SkillItem";
+import { skillProps } from "@/type/type";
 
-const programmingLanguage = [
+const programmingLanguage: skillProps[] = [
   {
     id: 1,
     name: "HTML",
@@ -22,7 +23,7 @@ const programmingLanguage = [
   },
 ];
 
-const framework = [
+const framework: skillProps[] = [
   {
     id: 1,
     name: "React",
@@ -35,7 +36,7 @@ const framework = [
   },
 ];
 
-const designTools = [
+const designTools: skillProps[] = [
   {
     id: 1,
     name: "XD",
@@ -43,7 +44,7 @@ const designTools = [
   },
 ];
 
-const otherTools = [
+const otherTools: skillProps[] = [
   {
     id: 1,
     name: "Github",

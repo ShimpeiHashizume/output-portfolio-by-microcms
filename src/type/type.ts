@@ -4,7 +4,7 @@ export type pageTitleProps = {
 };
 
 export type skillProps = {
-  subTitle: string;
+  subTitle?: string;
   id: number;
   name: string;
   years: number;
