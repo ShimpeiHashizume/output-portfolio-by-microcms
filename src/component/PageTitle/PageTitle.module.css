@@ -1,0 +1,10 @@
+.container {
+  margin: 0 0 80px;
+}
+.title {
+  font-size: 56px;
+}
+.desc {
+  font-size: 14px;
+  margin: 16px 0 0;
+}
