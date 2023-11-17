@@ -84,10 +84,10 @@ const About = () => {
       <section className={styles.skill}>
         <h2 className={styles.title}>スキル</h2>
         <div className={styles.skillWrap}>
-          <SkillItem skillInfo={programmingLanguage} />
-          <SkillItem skillInfo={framework} />
-          <SkillItem skillInfo={designTools} />
-          <SkillItem skillInfo={otherTools} />
+          <SkillItem subTitle="言語" skillInfo={programmingLanguage} />
+          <SkillItem subTitle="フレームワーク" skillInfo={framework} />
+          <SkillItem subTitle="デザインツール" skillInfo={designTools} />
+          <SkillItem subTitle="その他ツール" skillInfo={otherTools} />
         </div>
       </section>
     </div>
