@@ -30,4 +30,26 @@
 }
 .navigationItemLink {
   position: relative;
+  display: block;
+  padding: 0 8px 8px;
+  transition: 0.3s;
+}
+.navigationItemLink:hover {
+  opacity: 0.7;
+}
+.navigationItemLink::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #53c28b;
+  transform: scale(0, 1);
+  transform-origin: center top;
+  transition: 0.3s;
+}
+.current::before {
+  transform: scale(1, 1);
 }
