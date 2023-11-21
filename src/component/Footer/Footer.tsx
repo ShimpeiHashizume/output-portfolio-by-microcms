@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className={styles.footer}>
       <div className={styles.footerInner}>
         <p>
-          <small className={styles.copyright}>&copy;2023 Shimpei Hashizume. All rights reserved.</small>
+          <small className={styles.copyright}>&copy;2023 Shimpei Hashizume - Build with Next.js and microCMS</small>
         </p>
       </div>
     </footer>
