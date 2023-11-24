@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./Navbar.module.css";
 import Link from "next/link";
 import { navList } from "@/constants/NavLinks";
 import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
 import { usePathname } from "next/navigation";
+import { ThemeContext } from "@/context/ThemeContext";
 
 const Navbar = () => {
   const [navIsOpen, setNavIsOpen] = useState(false);
@@ -18,7 +19,18 @@ const Navbar = () => {
     setAriaHidden((prev) => !prev);
   };
 
+  const closeNav = () => {
+    setNavIsOpen(false);
+    setAriaExpanded(false);
+    setAriaHidden(true);
+  };
+
   const pathname = usePathname();
+
+  const contextValue = useContext(ThemeContext);
+
+  const { mode } = contextValue as { mode: string };
+
   return (
     <header className={styles.header}>
       <div className={styles.headerInner}>
@@ -27,7 +39,7 @@ const Navbar = () => {
             Yeaaar
           </Link>
         </h1>
-        <nav className={`${styles.navigation} ${navIsOpen ? styles.navOpen : styles.navClose}`}>
+        <nav className={styles.navigation}>
           {navIsOpen && (
             <style jsx global>{`
               @media (max-width: 767px) {
@@ -50,11 +62,21 @@ const Navbar = () => {
           </ul>
           <DarkModeToggle />
         </nav>
-        <nav className={`${styles.spNavigation} ${navIsOpen ? styles.navOpen : styles.navClose}`}>
+        <nav
+          id="drawer"
+          className={`${styles.spNavigation} ${navIsOpen ? styles.navOpen : styles.navClose}`}
+          style={mode === "light" ? { backgroundColor: "#fff" } : { backgroundColor: "#111" }}
+          aria-hidden={ariaHidden}
+        >
           <ul className={styles.navigationList}>
             {navList.map((item) => (
               <li key={item.id} className={styles.navigationItem}>
-                <Link href={item.url} className={`${styles.navigationItemLink} ${pathname === item.url && styles.current}`}>
+                <Link
+                  href={item.url}
+                  className={`${styles.navigationItemLink} ${pathname === item.url && styles.current}`}
+                  style={mode === "light" ? { color: "#111" } : { color: "#bbb" }}
+                  onClick={closeNav}
+                >
                   {item.title}
                 </Link>
               </li>

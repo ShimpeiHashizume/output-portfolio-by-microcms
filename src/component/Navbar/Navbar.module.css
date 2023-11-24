@@ -127,6 +127,7 @@
     height: 1px;
     background: #bbb;
     margin: auto;
+    transition: 0.3s;
   }
   .hamburgerLine::before {
     content: "";
@@ -137,6 +138,7 @@
     width: 24px;
     height: 1px;
     background: #bbb;
+    transition: 0.3s;
   }
   .hamburgerLine::after {
     content: "";
@@ -147,5 +149,19 @@
     width: 24px;
     height: 1px;
     background: #bbb;
+    transition: 0.3s;
+  }
+  .hamburgerOpen .hamburgerLine {
+    background: transparent;
+  }
+  .hamburgerOpen .hamburgerLine::before {
+    top: 0;
+    background: #bbb;
+    transform: rotate(45deg);
+  }
+  .hamburgerOpen .hamburgerLine::after {
+    top: 0;
+    background: #bbb;
+    transform: rotate(-45deg);
   }
 }
