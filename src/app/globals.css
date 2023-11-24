@@ -18,6 +18,17 @@ a {
 li {
   list-style: none;
 }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
 .theme {
   transition: 0.3s;
 }
@@ -45,4 +56,16 @@ li {
   display: flex;
   flex-direction: column;
   gap: 80px;
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    padding: 80px 24px 0;
+  }
+  .main {
+    margin: 0 0 40px;
+  }
+  .mainBlock {
+    gap: 40px;
+  }
 }
