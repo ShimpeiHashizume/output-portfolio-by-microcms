@@ -25,7 +25,30 @@ const tagData = [
   },
 ];
 
+const postData = [
+  {
+    title: "こちらは記事タイトルになります",
+    date: "2023/11/24",
+    category: "Next.js",
+    url: "hoge",
+  },
+  {
+    title: "こちらは記事タイトルになります",
+    date: "2023/11/25",
+    category: "React",
+    url: "piyo",
+  },
+  {
+    title: "こちらは記事タイトルになります",
+    date: "2023/11/28",
+    category: "TypeScript",
+    url: "fuga",
+  },
+];
+
 export default function Home() {
+  const articleSort = postData.sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
+
   return (
     <div className="mainBlock">
       <PageTitle title="Output Code" desc="アウトプット用のポートフォリオサイト" />
@@ -38,6 +61,25 @@ export default function Home() {
           </li>
         ))}
       </ul>
+      <div className={styles.postBlock}>
+        {articleSort.map((item) => (
+          <article key={item.url} className={styles.postItem}>
+            <div className={styles.postMain}>
+              <Link href={`/${item.url}`} className={styles.postTitleLink}>
+                <h2 className={styles.postTitle}>{item.title}</h2>
+              </Link>
+              <div className={styles.categoryContainer}>
+                <Link href={`/${item.category.toLowerCase()}`} className={styles.categoryLink}>
+                  <span className={styles.categoryItem}>{item.category}</span>
+                </Link>
+              </div>
+            </div>
+            <div className={styles.postSub}>
+              <time className={styles.date}>{item.date}</time>
+            </div>
+          </article>
+        ))}
+      </div>
     </div>
   );
 }

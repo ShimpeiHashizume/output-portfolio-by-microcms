@@ -1,6 +1,6 @@
 .tagList {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 16px 40px;
 }
 .tagItem {
@@ -11,4 +11,41 @@
   display: block;
   font-size: 16px;
   padding: 8px 16px;
+}
+.postItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-top: 1px solid #bbb;
+  padding: 16px;
+}
+.postItem:last-child {
+  border-bottom: 1px solid #bbb;
+}
+.postTitleLink {
+  display: inline-block;
+  margin: 0 0 12px;
+  transition: 0.3s;
+}
+.postTitleLink:hover {
+  opacity: 0.7;
+}
+.postTitle {
+  font-size: 20px;
+}
+.categoryContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.categoryLink {
+  display: inline-block;
+  font-size: 14px;
+  border: 1px solid #bbb;
+  border-radius: 9999px;
+  padding: 4px 16px;
+  transition: 0.3s;
+}
+.categoryLink:hover {
+  opacity: 0.7;
 }
