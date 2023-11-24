@@ -17,14 +17,23 @@
   justify-content: space-between;
   align-items: flex-start;
   border-top: 1px solid #bbb;
-  padding: 16px;
+  padding: 16px 0;
 }
 .postItem:last-child {
   border-bottom: 1px solid #bbb;
 }
+.postHead {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin: 0 0 8px;
+}
+.date {
+  font-size: 14px;
+  margin-top: 5px;
+}
 .postTitleLink {
   display: inline-block;
-  margin: 0 0 12px;
   transition: 0.3s;
 }
 .postTitleLink:hover {

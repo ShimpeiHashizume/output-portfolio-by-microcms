@@ -65,17 +65,17 @@ export default function Home() {
         {articleSort.map((item) => (
           <article key={item.url} className={styles.postItem}>
             <div className={styles.postMain}>
+              <div className={styles.postHead}>
+                <time className={styles.date}>{item.date}</time>
+                <div className={styles.categoryContainer}>
+                  <Link href={`/${item.category.toLowerCase()}`} className={styles.categoryLink}>
+                    <span className={styles.categoryItem}>{item.category}</span>
+                  </Link>
+                </div>
+              </div>
               <Link href={`/${item.url}`} className={styles.postTitleLink}>
                 <h2 className={styles.postTitle}>{item.title}</h2>
               </Link>
-              <div className={styles.categoryContainer}>
-                <Link href={`/${item.category.toLowerCase()}`} className={styles.categoryLink}>
-                  <span className={styles.categoryItem}>{item.category}</span>
-                </Link>
-              </div>
-            </div>
-            <div className={styles.postSub}>
-              <time className={styles.date}>{item.date}</time>
             </div>
           </article>
         ))}
