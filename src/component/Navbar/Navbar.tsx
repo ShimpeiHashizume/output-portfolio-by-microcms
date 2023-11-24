@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Navbar.module.css";
 import Link from "next/link";
 import { navList } from "@/constants/NavLinks";
@@ -8,6 +8,16 @@ import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
 import { usePathname } from "next/navigation";
 
 const Navbar = () => {
+  const [navIsOpen, setNavIsOpen] = useState(false);
+  const [ariaExpanded, setAriaExpanded] = useState(false);
+  const [ariaHidden, setAriaHidden] = useState(false);
+
+  const toggleNav = () => {
+    setNavIsOpen((prev) => !prev);
+    setAriaExpanded((prev) => !prev);
+    setAriaHidden((prev) => !prev);
+  };
+
   const pathname = usePathname();
   return (
     <header className={styles.header}>
@@ -17,7 +27,18 @@ const Navbar = () => {
             Yeaaar
           </Link>
         </h1>
-        <nav className={styles.navigation}>
+        <nav className={`${styles.navigation} ${navIsOpen ? styles.navOpen : styles.navClose}`}>
+          {navIsOpen && (
+            <style jsx global>{`
+              @media (max-width: 767px) {
+                body {
+                  overflow: hidden;
+                  position: fixed;
+                  width: 100%;
+                }
+              }
+            `}</style>
+          )}
           <ul className={styles.navigationList}>
             {navList.map((item) => (
               <li key={item.id} className={styles.navigationItem}>
@@ -29,6 +50,24 @@ const Navbar = () => {
           </ul>
           <DarkModeToggle />
         </nav>
+        <nav className={`${styles.spNavigation} ${navIsOpen ? styles.navOpen : styles.navClose}`}>
+          <ul className={styles.navigationList}>
+            {navList.map((item) => (
+              <li key={item.id} className={styles.navigationItem}>
+                <Link href={item.url} className={`${styles.navigationItemLink} ${pathname === item.url && styles.current}`}>
+                  {item.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <div className={styles.spDarkModeToggle}>
+          <DarkModeToggle />
+        </div>
+        <button onClick={toggleNav} className={`${styles.hamburgerButton} ${navIsOpen ? styles.hamburgerOpen : styles.hamburgerClose}`} aria-controls="drawer" aria-expanded={ariaExpanded}>
+          <span className="visually-hidden">開く</span>
+          <span className={styles.hamburgerLine}></span>
+        </button>
       </div>
     </header>
   );
