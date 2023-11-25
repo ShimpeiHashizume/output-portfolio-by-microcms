@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
 import PageTitle from "@/component/PageTitle/PageTitle";
+import { getAllPosts } from "@/lib/api";
 import Link from "next/link";
 
 const tagData = [
@@ -25,29 +26,31 @@ const tagData = [
   },
 ];
 
-const postData = [
-  {
-    title: "こちらは記事タイトルになります",
-    date: "2023/11/24",
-    category: "Next.js",
-    url: "hoge",
-  },
-  {
-    title: "こちらは記事タイトルになります",
-    date: "2023/11/25",
-    category: "React",
-    url: "piyo",
-  },
-  {
-    title: "こちらは記事タイトルになります",
-    date: "2023/11/28",
-    category: "TypeScript",
-    url: "fuga",
-  },
-];
+// const postData = [
+//   {
+//     title: "こちらは記事タイトルになります",
+//     date: "2023/11/24",
+//     category: "Next.js",
+//     url: "hoge",
+//   },
+//   {
+//     title: "こちらは記事タイトルになります",
+//     date: "2023/11/25",
+//     category: "React",
+//     url: "piyo",
+//   },
+//   {
+//     title: "こちらは記事タイトルになります",
+//     date: "2023/11/28",
+//     category: "TypeScript",
+//     url: "fuga",
+//   },
+// ];
 
-export default function Home() {
-  const articleSort = postData.sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
+export default async function Home() {
+  const posts = await getAllPosts(4);
+  console.log(posts);
+  // const articleSort = postData.sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
 
   return (
     <div className="mainBlock">
@@ -62,19 +65,19 @@ export default function Home() {
         ))}
       </ul>
       <div className={styles.postBlock}>
-        {articleSort.map((item) => (
-          <article key={item.url} className={styles.postItem}>
+        {posts.map((post: any) => (
+          <article key={post.slug} className={styles.postItem}>
             <div className={styles.postMain}>
               <div className={styles.postHead}>
-                <time className={styles.date}>{item.date}</time>
+                <time className={styles.date}>{post.publishDate}</time>
                 <div className={styles.categoryContainer}>
-                  <Link href={`/${item.category.toLowerCase()}`} className={styles.categoryLink}>
-                    <span className={styles.categoryItem}>{item.category}</span>
+                  <Link href={`${post.slug.toLowerCase()}`} className={styles.categoryLink}>
+                    <span className={styles.categoryItem}>{post.slug}</span>
                   </Link>
                 </div>
               </div>
-              <Link href={`/${item.url}`} className={styles.postTitleLink}>
-                <h2 className={styles.postTitle}>{item.title}</h2>
+              <Link href={`/blog/${post.slug.toLowerCase()}`} className={styles.postTitleLink}>
+                <h2 className={styles.postTitle}>{post.title}</h2>
               </Link>
             </div>
           </article>
