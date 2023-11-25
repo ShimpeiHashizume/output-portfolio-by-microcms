@@ -57,6 +57,9 @@ li {
   flex-direction: column;
   gap: 80px;
 }
+.publish {
+  font-size: 14px;
+}
 
 @media screen and (max-width: 767px) {
   .container {

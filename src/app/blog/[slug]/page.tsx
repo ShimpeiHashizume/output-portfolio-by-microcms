@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./page.module.css";
 import { getPostBySlug } from "@/lib/api";
+import PostHeader from "@/component/PostHeader/PostHeader";
 
 const Detail = async () => {
   const slug = "nexttypescript";
@@ -10,7 +11,7 @@ const Detail = async () => {
   return (
     <div className="mainBlock">
       <div className={styles.inner}>
-        <h1>{post.title}</h1>
+        <PostHeader title={post.title} publish={post.publishDate} />
       </div>
     </div>
   );
