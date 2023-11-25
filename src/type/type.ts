@@ -3,6 +3,13 @@ export type pageTitleProps = {
   desc?: string;
 };
 
+export type postProps = {
+  title: string;
+  slug: string;
+  publishDate: string;
+  categories: Array<string>;
+};
+
 export type skillProps = {
   subTitle?: string;
   id: number;
