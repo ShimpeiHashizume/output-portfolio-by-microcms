@@ -1,6 +1,7 @@
 import styles from "./page.module.css";
 import PageTitle from "@/component/PageTitle/PageTitle";
 import { getAllPosts } from "@/lib/api";
+import { postProps } from "@/type/type";
 import Link from "next/link";
 
 const tagData = [
@@ -26,31 +27,10 @@ const tagData = [
   },
 ];
 
-// const postData = [
-//   {
-//     title: "こちらは記事タイトルになります",
-//     date: "2023/11/24",
-//     category: "Next.js",
-//     url: "hoge",
-//   },
-//   {
-//     title: "こちらは記事タイトルになります",
-//     date: "2023/11/25",
-//     category: "React",
-//     url: "piyo",
-//   },
-//   {
-//     title: "こちらは記事タイトルになります",
-//     date: "2023/11/28",
-//     category: "TypeScript",
-//     url: "fuga",
-//   },
-// ];
-
 export default async function Home() {
   const posts = await getAllPosts(4);
   console.log(posts);
-  // const articleSort = postData.sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
+  const articleSort = posts.sort((a: { publishDate: string }, b: { publishDate: string }) => Date.parse(b.publishDate) - Date.parse(a.publishDate));
 
   return (
     <div className="mainBlock">
@@ -65,7 +45,7 @@ export default async function Home() {
         ))}
       </ul>
       <div className={styles.postBlock}>
-        {posts.map((post: any) => (
+        {articleSort.map((post: postProps) => (
           <article key={post.slug} className={styles.postItem}>
             <div className={styles.postMain}>
               <div className={styles.postHead}>
