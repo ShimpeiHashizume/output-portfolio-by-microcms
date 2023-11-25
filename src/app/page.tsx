@@ -1,8 +1,8 @@
-import styles from "./page.module.css";
-import PageTitle from "@/component/PageTitle/PageTitle";
+import Link from "next/link";
 import { getAllPosts } from "@/lib/api";
 import { postProps } from "@/type/type";
-import Link from "next/link";
+import PageTitle from "@/component/PageTitle/PageTitle";
+import styles from "./page.module.css";
 
 const tagData = [
   {
@@ -29,7 +29,8 @@ const tagData = [
 
 export default async function Home() {
   const posts = await getAllPosts(4);
-  console.log(posts);
+  // console.log(posts);
+
   const articleSort = posts.sort((a: { publishDate: string }, b: { publishDate: string }) => Date.parse(b.publishDate) - Date.parse(a.publishDate));
 
   return (
