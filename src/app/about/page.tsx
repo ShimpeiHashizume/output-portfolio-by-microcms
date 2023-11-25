@@ -65,7 +65,7 @@ const otherTools: skillProps[] = [
 const About = () => {
   return (
     <div className="mainBlock">
-      <PageTitle title="About" desc="プロフィールページ" />
+      <PageTitle title="About" desc="プロフィール" />
       <section className={styles.profile}>
         <div className={styles.profileImgContainer}>
           <Image src="/undraw_code_review_re_woeb.svg" alt="" fill={true} />
