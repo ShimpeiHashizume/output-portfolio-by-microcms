@@ -30,3 +30,9 @@ export type skillProps = {
 export type ConvertBodyProps = {
   contentHTML: string;
 };
+
+export type ButtonProps = {
+  href?: string;
+  onClick?: () => void;
+  children?: React.ReactNode;
+};
