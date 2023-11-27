@@ -1,0 +1,19 @@
+.stack h1 {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 40px 0 20px;
+}
+.stack h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 40px 0 16px;
+}
+.stack h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 40px 0 8px;
+}
+.stack p {
+  font-size: 16px;
+  line-height: 1.6;
+}
