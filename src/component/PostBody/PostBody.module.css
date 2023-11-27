@@ -16,4 +16,39 @@
 .stack p {
   font-size: 16px;
   line-height: 1.6;
+  letter-spacing: 0.2px;
+}
+.stack figure {
+  margin: 40px 0 16px;
+}
+.stack img {
+  max-width: 100%;
+  height: auto;
+}
+.stack ul {
+  padding: 0;
+  margin: 40px 0 16px;
+}
+.stack ul li {
+  font-family: var(--font-notojp);
+  list-style: revert;
+  list-style-position: inside;
+}
+.stack ol {
+  padding: 0;
+  margin: 40px 0 16px;
+}
+.stack ol li {
+  font-family: var(--font-notojp);
+  list-style: decimal;
+  list-style-position: inside;
+}
+.stack pre {
+  border-radius: 16px;
+  background-color: #eee;
+  padding: 24px;
+  margin: 40px 0 16px;
+}
+.stack > *:last-child {
+  margin-bottom: 0;
 }
