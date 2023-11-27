@@ -1,0 +1,17 @@
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+  background-color: #53c28b;
+  padding: 8px 16px;
+  transition: 0.3s;
+}
+.button:hover {
+  opacity: 0.7;
+}
