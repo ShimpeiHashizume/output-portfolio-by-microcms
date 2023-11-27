@@ -6,7 +6,6 @@ import ConvertDate from "../ConvertDate/ConvertDate";
 import PrimaryButton from "../PrimaryButton/PrimaryButton";
 
 const PostList = ({ posts, detailButtonOn }: { posts: postProps[]; detailButtonOn?: boolean }) => {
-  console.log(posts);
   return (
     <div className={styles.postBlock}>
       {posts.map((post: postProps) => (
