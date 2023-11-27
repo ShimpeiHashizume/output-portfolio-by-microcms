@@ -1,0 +1,10 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.prev a,
+.next a {
+  display: inline-block;
+  font-size: 14px;
+}
