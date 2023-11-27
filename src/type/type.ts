@@ -16,3 +16,7 @@ export type skillProps = {
   name: string;
   years: number;
 };
+
+export type ConvertBodyProps = {
+  contentHTML: string;
+};
