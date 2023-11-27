@@ -1,0 +1,50 @@
+.postItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-top: 1px solid #bbb;
+  padding: 16px 0;
+}
+.postItem:last-of-type {
+  border-bottom: 1px solid #bbb;
+}
+.postHead {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin: 0 0 8px;
+}
+.date {
+  font-size: 14px;
+  margin-top: 4px;
+}
+.postTitleLink {
+  display: inline-block;
+  transition: 0.3s;
+}
+.postTitleLink:hover {
+  opacity: 0.7;
+}
+.postTitle {
+  font-size: 20px;
+}
+.categoryContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.categoryLink {
+  display: inline-block;
+  font-size: 14px;
+  border: 1px solid #bbb;
+  border-radius: 9999px;
+  padding: 4px 16px;
+  transition: 0.3s;
+}
+.categoryLink:hover {
+  opacity: 0.7;
+}
+.moreButtonWrap {
+  text-align: right;
+  margin: 40px 0 0;
+}
