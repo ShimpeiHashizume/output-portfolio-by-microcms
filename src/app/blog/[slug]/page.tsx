@@ -1,14 +1,14 @@
 import React from "react";
 import styles from "./page.module.css";
-import { getPostBySlug } from "@/lib/api";
+import { getAllSlugs, getPostBySlug } from "@/lib/api";
 import PostHeader from "@/component/PostHeader/PostHeader";
 import ConvertBody from "@/component/ConvertBody/ConvertBody";
 import PostBody from "@/component/PostBody/PostBody";
 
-const Detail = async () => {
-  const slug = "nexttypescript";
+const Detail = async ({ params }: { params: { slug: string } }) => {
+  // console.log(params);
+  const slug = params.slug;
   const post = await getPostBySlug(slug);
-  console.log(post);
 
   return (
     <div className="mainBlock">
@@ -20,6 +20,14 @@ const Detail = async () => {
       </div>
     </div>
   );
+};
+
+export const generateStaticParams = async () => {
+  const allSlugs = await getAllSlugs();
+
+  return allSlugs.map(({ slug }: { slug: string }) => {
+    return { slug: slug };
+  });
 };
 
 export default Detail;
