@@ -6,7 +6,6 @@ import ConvertBody from "@/component/ConvertBody/ConvertBody";
 import PostBody from "@/component/PostBody/PostBody";
 
 const Detail = async ({ params }: { params: { slug: string } }) => {
-  // console.log(params);
   const slug = params.slug;
   const post = await getPostBySlug(slug);
 
