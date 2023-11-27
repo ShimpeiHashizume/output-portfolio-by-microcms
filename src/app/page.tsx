@@ -5,6 +5,7 @@ import PageTitle from "@/component/PageTitle/PageTitle";
 import styles from "./page.module.css";
 import ConvertDate from "@/component/ConvertDate/ConvertDate";
 import PrimaryButton from "@/component/PrimaryButton/PrimaryButton";
+import AllCategories from "@/component/AllCategories/AllCategories";
 
 export default async function Home() {
   const posts = await getAllPosts(4);
@@ -13,15 +14,7 @@ export default async function Home() {
   return (
     <div className="mainBlock">
       <PageTitle title="Output Code" desc="アウトプット用のポートフォリオサイト" />
-      <ul className={styles.tagList}>
-        {categories.map((category: categoriesProps) => (
-          <li key={category.id} className={styles.tagItem}>
-            <Link href={`/category/${category.slug}`} className={styles.tagItemLink}>
-              {category.name}
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <AllCategories categories={categories} />
       <div className={styles.postBlock}>
         {posts.map((post: postProps) => (
           <article key={post.slug} className={styles.postItem}>
