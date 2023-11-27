@@ -58,6 +58,7 @@ li {
   gap: 80px;
 }
 .publish {
+  font-family: var(--font-notojp);
   font-size: 14px;
 }
 
