@@ -1,60 +1,40 @@
 import Link from "next/link";
-import { getAllPosts } from "@/lib/api";
-import { postProps } from "@/type/type";
+import { getAllCategories, getAllPosts } from "@/lib/api";
+import { categoriesProps, postProps } from "@/type/type";
 import PageTitle from "@/component/PageTitle/PageTitle";
 import styles from "./page.module.css";
-
-const tagData = [
-  {
-    name: "JavaScript",
-    url: "javascript",
-  },
-  {
-    name: "React",
-    url: "react",
-  },
-  {
-    name: "Next.js",
-    url: "next.js",
-  },
-  {
-    name: "Tailwindcss",
-    url: "tailwindcss",
-  },
-  {
-    name: "Storybook",
-    url: "storybook",
-  },
-];
+import ConvertDate from "@/component/ConvertDate/ConvertDate";
 
 export default async function Home() {
   const posts = await getAllPosts(4);
-  // console.log(posts);
-
-  const articleSort = posts.sort((a: { publishDate: string }, b: { publishDate: string }) => Date.parse(b.publishDate) - Date.parse(a.publishDate));
+  const categories = await getAllCategories();
 
   return (
     <div className="mainBlock">
       <PageTitle title="Output Code" desc="アウトプット用のポートフォリオサイト" />
       <ul className={styles.tagList}>
-        {tagData.map((tag) => (
-          <li key={tag.url} className={styles.tagItem}>
-            <Link href={tag.url} className={styles.tagItemLink}>
-              {tag.name}
+        {categories.map((category: categoriesProps) => (
+          <li key={category.id} className={styles.tagItem}>
+            <Link href={`/category/${category.slug}`} className={styles.tagItemLink}>
+              {category.name}
             </Link>
           </li>
         ))}
       </ul>
       <div className={styles.postBlock}>
-        {articleSort.map((post: postProps) => (
+        {posts.map((post: postProps) => (
           <article key={post.slug} className={styles.postItem}>
             <div className={styles.postMain}>
               <div className={styles.postHead}>
-                <time className={styles.date}>{post.publishDate}</time>
+                <div className={styles.date}>
+                  <ConvertDate dateISO={post.publishDate} />
+                </div>
                 <div className={styles.categoryContainer}>
-                  <Link href={`${post.slug.toLowerCase()}`} className={styles.categoryLink}>
-                    <span className={styles.categoryItem}>{post.slug}</span>
-                  </Link>
+                  {post.categories.map((category: categoriesProps) => (
+                    <Link key={category.id} href={`/category/${category.slug}`} className={styles.categoryLink}>
+                      <span className={styles.categoryItem}>{category.name}</span>
+                    </Link>
+                  ))}
                 </div>
               </div>
               <Link href={`/blog/${post.slug.toLowerCase()}`} className={styles.postTitleLink}>
