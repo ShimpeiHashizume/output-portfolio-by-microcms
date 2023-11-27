@@ -7,7 +7,17 @@ export type postProps = {
   title: string;
   slug: string;
   publishDate: string;
-  categories: Array<string>;
+  categories: {
+    id: string;
+    name: string;
+    slug: string;
+  }[];
+};
+
+export type categoriesProps = {
+  name: string;
+  id: string;
+  slug: string;
 };
 
 export type skillProps = {
