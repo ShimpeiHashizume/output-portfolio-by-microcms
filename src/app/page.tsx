@@ -6,6 +6,7 @@ import styles from "./page.module.css";
 import ConvertDate from "@/component/ConvertDate/ConvertDate";
 import PrimaryButton from "@/component/PrimaryButton/PrimaryButton";
 import AllCategories from "@/component/AllCategories/AllCategories";
+import PostList from "@/component/PostList/PostList";
 
 export default async function Home() {
   const posts = await getAllPosts(4);
@@ -15,32 +16,7 @@ export default async function Home() {
     <div className="mainBlock">
       <PageTitle title="Output Code" desc="アウトプット用のポートフォリオサイト" />
       <AllCategories categories={categories} />
-      <div className={styles.postBlock}>
-        {posts.map((post: postProps) => (
-          <article key={post.slug} className={styles.postItem}>
-            <div className={styles.postMain}>
-              <div className={styles.postHead}>
-                <div className={styles.date}>
-                  <ConvertDate dateISO={post.publishDate} />
-                </div>
-                <div className={styles.categoryContainer}>
-                  {post.categories.map((category: categoriesProps) => (
-                    <Link key={category.id} href={`/category/${category.slug}`} className={styles.categoryLink}>
-                      <span className={styles.categoryItem}>{category.name}</span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-              <Link href={`/blog/${post.slug.toLowerCase()}`} className={styles.postTitleLink}>
-                <h2 className={styles.postTitle}>{post.title}</h2>
-              </Link>
-            </div>
-          </article>
-        ))}
-        <div className={styles.moreButtonWrap}>
-          <PrimaryButton href="/blog">記事をもっとみる</PrimaryButton>
-        </div>
-      </div>
+      <PostList posts={posts} detailButtonOn />
     </div>
   );
 }
