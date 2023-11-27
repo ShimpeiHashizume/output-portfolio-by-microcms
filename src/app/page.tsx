@@ -4,6 +4,7 @@ import { categoriesProps, postProps } from "@/type/type";
 import PageTitle from "@/component/PageTitle/PageTitle";
 import styles from "./page.module.css";
 import ConvertDate from "@/component/ConvertDate/ConvertDate";
+import PrimaryButton from "@/component/PrimaryButton/PrimaryButton";
 
 export default async function Home() {
   const posts = await getAllPosts(4);
@@ -43,6 +44,9 @@ export default async function Home() {
             </div>
           </article>
         ))}
+        <div className={styles.moreButtonWrap}>
+          <PrimaryButton href="/blog">記事をもっとみる</PrimaryButton>
+        </div>
       </div>
     </div>
   );
