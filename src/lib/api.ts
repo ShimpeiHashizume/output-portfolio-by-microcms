@@ -70,7 +70,7 @@ export const getAllPostsByCategories = async (catID: string, limit = 100) => {
       endpoint: "blogs",
       queries: {
         filters: `categories[contains]${catID}`,
-        fields: "title,slug",
+        fields: "title,slug,publishDate,categories",
         orders: "-publishDate",
         limit: limit,
       },
