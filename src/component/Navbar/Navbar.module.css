@@ -31,7 +31,7 @@
 .navigationItemLink {
   position: relative;
   display: block;
-  padding: 0 8px 8px;
+  padding: 8px;
 }
 .navigationItemLink:hover {
   opacity: 0.7;
