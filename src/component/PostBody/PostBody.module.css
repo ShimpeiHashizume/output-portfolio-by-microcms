@@ -53,3 +53,33 @@
 .stack > *:last-child {
   margin-bottom: 0;
 }
+
+@media screen and (max-width: 767px) {
+  .stack h1 {
+    font-size: 26px;
+    margin: 24px 0 16px;
+  }
+  .stack h2 {
+    font-size: 22px;
+    margin-top: 24px;
+  }
+  .stack h3 {
+    font-size: 18px;
+    margin-top: 24px;
+  }
+  .stack p {
+    margin-top: 24px;
+  }
+  .stack figure {
+    margin-top: 24px;
+  }
+  .stack ul {
+    margin-top: 24px;
+  }
+  .stack ol {
+    margin-top: 24px;
+  }
+  .stack pre {
+    margin-top: 24px;
+  }
+}

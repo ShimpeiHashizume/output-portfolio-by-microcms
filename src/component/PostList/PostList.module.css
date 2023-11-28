@@ -48,3 +48,12 @@
   text-align: right;
   margin: 40px 0 0;
 }
+
+@media screen and (max-width: 767px) {
+  .postTitle {
+    font-size: 18px;
+  }
+  .moreButtonWrap {
+    margin: 24px 0 0;
+  }
+}

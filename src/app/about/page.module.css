@@ -28,3 +28,22 @@
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 24px 40px;
 }
+
+@media screen and (max-width: 767px) {
+  .profile {
+    flex-direction: column-reverse;
+  }
+  .profileImgContainer {
+    flex: none;
+    width: 100%;
+    height: min(56.53vw, 320px);
+  }
+  .title {
+    font-size: 26px;
+    margin: 0 0 16px;
+  }
+  .skillWrap {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px 24px;
+  }
+}
