@@ -17,7 +17,7 @@ const PostList = ({ posts, detailButtonOn }: { posts: postProps[]; detailButtonO
               </div>
               <div className={styles.categoryContainer}>
                 {post.categories.map((category: categoriesProps) => (
-                  <Link key={category.id} href={`/category/${category.slug}`} className={styles.categoryLink}>
+                  <Link key={category.id} href={`/blog/category/${category.slug}`} className={styles.categoryLink}>
                     <span className={styles.categoryItem}>{category.name}</span>
                   </Link>
                 ))}
