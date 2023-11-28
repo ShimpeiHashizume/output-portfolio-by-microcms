@@ -1,10 +1,27 @@
 .pagination {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 16px;
+  margin: 80px 0 0;
+}
+.prev,
+.next {
+  display: flex;
 }
 .prev a,
 .next a {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: 14px;
+}
+.prev a:hover,
+.next a:hover {
+  opacity: 0.7;
+}
+.icon {
+  flex-shrink: 0;
+  width: 14px;
+  margin-top: 2px;
 }

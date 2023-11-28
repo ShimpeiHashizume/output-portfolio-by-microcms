@@ -4,6 +4,7 @@ import { getAllSlugs, getPostBySlug } from "@/lib/api";
 import PostHeader from "@/component/PostHeader/PostHeader";
 import ConvertBody from "@/component/ConvertBody/ConvertBody";
 import PostBody from "@/component/PostBody/PostBody";
+import Pagination from "@/component/Pagination/Pagination";
 
 const Detail = async ({ params }: { params: { slug: string } }) => {
   const slug = params.slug;
@@ -16,6 +17,7 @@ const Detail = async ({ params }: { params: { slug: string } }) => {
         <PostBody>
           <ConvertBody contentHTML={post.contents} />
         </PostBody>
+        <Pagination prevText="記事一覧に戻る" prevUrl="/blog" nextText="記事一覧に進む" nextUrl="/blog" />
       </div>
     </div>
   );
