@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ja">
-      <body className={`${montserrat.variable} ${notojp.variable}`}>
+      <body suppressHydrationWarning={true} className={`${montserrat.variable} ${notojp.variable}`}>
         <ThemeProider>
           <div className="container">
             <Navbar />
