@@ -7,6 +7,28 @@
   font-size: 40px;
   font-weight: 700;
 }
+.infoWrap {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.infoWrap time {
+  margin-top: 3px;
+}
+.categoryWrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.categoryWrap a {
+  display: inline-block;
+  font-size: 14px;
+  border: 1px solid #bbb;
+  border-radius: 9999px;
+  padding: 4px 16px;
+  transition: 0.3s;
+}
 
 @media screen and (max-width: 767px) {
   .title {

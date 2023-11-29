@@ -19,7 +19,7 @@ const Detail = async ({ params }: { params: { slug: string } }) => {
   return (
     <div className="mainBlock">
       <div className={styles.inner}>
-        <PostHeader title={post.title} publish={post.publishDate} />
+        <PostHeader title={post.title} publish={post.publishDate} categories={post.categories} />
         <PostBody>
           <ConvertBody contentHTML={post.contents} />
         </PostBody>
