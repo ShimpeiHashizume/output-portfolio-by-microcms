@@ -6,6 +6,12 @@ import ConvertBody from "@/component/ConvertBody/ConvertBody";
 import PostBody from "@/component/PostBody/PostBody";
 import Pagination from "@/component/Pagination/Pagination";
 
+import { siteMeta } from "@/lib/constants";
+const { siteTitle, siteUrl } = siteMeta;
+
+import { openGraphMetadata, twitterMetadata } from "@/lib/baseMetadata";
+import { extractText } from "@/lib/extractText";
+
 const Detail = async ({ params }: { params: { slug: string } }) => {
   const slug = params.slug;
   const post = await getPostBySlug(slug);
@@ -29,6 +35,34 @@ export const generateStaticParams = async () => {
   return allSlugs.map(({ slug }: { slug: string }) => {
     return { slug: slug };
   });
+};
+
+export const generateMetadata = async ({ params }: { params: { slug: string } }) => {
+  const slug = params.slug;
+  const post = await getPostBySlug(slug);
+  const { title: pageTitle, publishDate: publish, content, categories } = post;
+
+  const pageDesc = extractText(content);
+  const ogpTitle = `${pageTitle} | ${siteTitle}`;
+  const ogpUrl = new URL(`/blog/${slug}`, siteUrl).toString();
+
+  const metadata = {
+    title: pageTitle,
+    description: pageDesc,
+
+    openGraph: {
+      ...openGraphMetadata,
+      title: ogpTitle,
+      description: pageDesc,
+      url: ogpUrl,
+    },
+    twitter: {
+      ...twitterMetadata,
+      title: ogpTitle,
+      description: pageDesc,
+    },
+  };
+  return metadata;
 };
 
 export default Detail;

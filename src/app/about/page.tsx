@@ -5,6 +5,11 @@ import Image from "next/image";
 import SkillItem from "@/component/SkillItem/SkillItem";
 import { skillProps } from "@/type/type";
 
+import { siteMeta } from "@/lib/constants";
+const { siteTitle, siteUrl } = siteMeta;
+
+import { openGraphMetadata, twitterMetadata } from "@/lib/baseMetadata";
+
 const programmingLanguage: skillProps[] = [
   {
     id: 1,
@@ -92,6 +97,28 @@ const About = () => {
       </section>
     </div>
   );
+};
+
+const pageTitle = "About";
+const pageDesc = "Shimpei Hashizumeの詳しいプロフィールになります";
+const ogpTitle = `${pageTitle} | ${siteTitle}`;
+const ogpUrl = new URL("/about", siteUrl).toString();
+
+export const metadata = {
+  title: pageTitle,
+  description: pageDesc,
+
+  openGraph: {
+    ...openGraphMetadata,
+    title: ogpTitle,
+    description: pageDesc,
+    url: ogpUrl,
+  },
+  twitter: {
+    ...twitterMetadata,
+    title: ogpTitle,
+    description: pageDesc,
+  },
 };
 
 export default About;
