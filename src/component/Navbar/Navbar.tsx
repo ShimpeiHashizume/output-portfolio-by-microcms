@@ -26,6 +26,8 @@ const Navbar = () => {
   };
 
   const pathname = usePathname();
+  const splitPathname = pathname.split("/");
+  const basePathname = splitPathname[1];
 
   const contextValue = useContext(ThemeContext);
 
@@ -41,13 +43,16 @@ const Navbar = () => {
         </h1>
         <nav className={styles.navigation}>
           <ul className={styles.navigationList}>
-            {navList.map((item) => (
-              <li key={item.id} className={styles.navigationItem}>
-                <Link href={item.url} className={`${styles.navigationItemLink} ${pathname === item.url && styles.current}`}>
-                  {item.title}
-                </Link>
-              </li>
-            ))}
+            {navList.map((item) => {
+              const navPath = item.url.split("/");
+              return (
+                <li key={item.id} className={styles.navigationItem}>
+                  <Link href={item.url} className={`${styles.navigationItemLink} ${basePathname === navPath[1] && styles.current}`}>
+                    {item.title}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
           <DarkModeToggle />
         </nav>
@@ -58,18 +63,21 @@ const Navbar = () => {
           aria-hidden={ariaHidden}
         >
           <ul className={styles.navigationList}>
-            {navList.map((item) => (
-              <li key={item.id} className={styles.navigationItem}>
-                <Link
-                  href={item.url}
-                  className={`${styles.navigationItemLink} ${pathname === item.url && styles.current}`}
-                  style={mode === "light" ? { color: "#111" } : { color: "#bbb" }}
-                  onClick={closeNav}
-                >
-                  {item.title}
-                </Link>
-              </li>
-            ))}
+            {navList.map((item) => {
+              const navPath = item.url.split("/");
+              return (
+                <li key={item.id} className={styles.navigationItem}>
+                  <Link
+                    href={item.url}
+                    className={`${styles.navigationItemLink} ${basePathname === navPath[1] && styles.current}`}
+                    style={mode === "light" ? { color: "#111" } : { color: "#bbb" }}
+                    onClick={closeNav}
+                  >
+                    {item.title}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
         <div className={styles.spDarkModeToggle}>
