@@ -36,21 +36,10 @@ const Navbar = () => {
       <div className={styles.headerInner}>
         <h1 className={styles.logo}>
           <Link href="/" className={styles.logoText}>
-            Yeaaar
+            OC
           </Link>
         </h1>
         <nav className={styles.navigation}>
-          {navIsOpen && (
-            <style jsx global>{`
-              @media (max-width: 767px) {
-                body {
-                  overflow: hidden;
-                  position: fixed;
-                  width: 100%;
-                }
-              }
-            `}</style>
-          )}
           <ul className={styles.navigationList}>
             {navList.map((item) => (
               <li key={item.id} className={styles.navigationItem}>
