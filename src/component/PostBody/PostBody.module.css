@@ -45,9 +45,6 @@
   list-style-position: inside;
 }
 .stack pre {
-  border-radius: 16px;
-  background-color: #eee;
-  padding: 24px;
   margin: 40px 0 16px;
 }
 .stack > *:last-child {

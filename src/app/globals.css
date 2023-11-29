@@ -61,6 +61,9 @@ li {
   font-family: var(--font-notojp);
   font-size: 14px;
 }
+.hljs {
+  font-family: var(--font-source);
+}
 
 @media screen and (max-width: 767px) {
   .container {
@@ -71,5 +74,8 @@ li {
   }
   .mainBlock {
     gap: 40px;
+  }
+  .hljs {
+    font-size: 14px;
   }
 }
