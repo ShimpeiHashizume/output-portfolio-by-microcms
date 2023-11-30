@@ -3,70 +3,13 @@ import PageTitle from "@/component/PageTitle/PageTitle";
 import styles from "./page.module.css";
 import Image from "next/image";
 import SkillItem from "@/component/SkillItem/SkillItem";
-import { skillProps } from "@/type/type";
 import eyecatch from "/src/images/about.jpg";
 
 import { siteMeta } from "@/lib/constants";
 const { siteTitle, siteUrl } = siteMeta;
 
 import { openGraphMetadata, twitterMetadata } from "@/lib/baseMetadata";
-
-const programmingLanguage: skillProps[] = [
-  {
-    id: 1,
-    name: "HTML",
-    years: 3,
-  },
-  {
-    id: 2,
-    name: "CSS",
-    years: 3,
-  },
-  {
-    id: 3,
-    name: "JavaScript",
-    years: 3,
-  },
-];
-
-const framework: skillProps[] = [
-  {
-    id: 1,
-    name: "React",
-    years: 1,
-  },
-  {
-    id: 2,
-    name: "Next.js",
-    years: 1,
-  },
-];
-
-const designTools: skillProps[] = [
-  {
-    id: 1,
-    name: "XD",
-    years: 3,
-  },
-];
-
-const otherTools: skillProps[] = [
-  {
-    id: 1,
-    name: "Github",
-    years: 2,
-  },
-  {
-    id: 2,
-    name: "Gitlab",
-    years: 2,
-  },
-  {
-    id: 3,
-    name: "Backlog",
-    years: 3,
-  },
-];
+import { designTools, framework, otherTools, programmingLanguage } from "@/constants/SkillData";
 
 const About = () => {
   return (
