@@ -1,7 +1,7 @@
 export const siteMeta = {
   siteTitle: "Saving Knowledge Code",
   siteDesc: "Shimpei Hashizumeのアウトプット用のサイトです。",
-  siteUrl: "https://****",
+  siteUrl: "https://output-portfolio-by-microcms.vercel.app/",
   siteLocal: "ja_JP",
   siteType: "website",
   siteIcon: "/favicon.png",
