@@ -6,7 +6,7 @@ import ConvertBody from "@/component/ConvertBody/ConvertBody";
 import PostBody from "@/component/PostBody/PostBody";
 import Pagination from "@/component/Pagination/Pagination";
 
-import { siteMeta } from "@/lib/constants";
+import { eyecatchLocal, siteMeta } from "@/lib/constants";
 const { siteTitle, siteUrl } = siteMeta;
 
 import { openGraphMetadata, twitterMetadata } from "@/lib/baseMetadata";
@@ -40,9 +40,11 @@ export const generateStaticParams = async () => {
 export const generateMetadata = async ({ params }: { params: { slug: string } }) => {
   const slug = params.slug;
   const post = await getPostBySlug(slug);
-  const { title: pageTitle, publishDate: publish, content, categories } = post;
+  const { title: pageTitle, publishDate: publish, contents, categories } = post;
 
-  const pageDesc = extractText(content);
+  const pageDesc = extractText(contents);
+  const eyecatch = post.eyecatch ?? eyecatchLocal;
+
   const ogpTitle = `${pageTitle} | ${siteTitle}`;
   const ogpUrl = new URL(`/blog/${slug}`, siteUrl).toString();
 
@@ -55,11 +57,19 @@ export const generateMetadata = async ({ params }: { params: { slug: string } })
       title: ogpTitle,
       description: pageDesc,
       url: ogpUrl,
+      images: [
+        {
+          url: eyecatch.url,
+          width: eyecatch.width,
+          height: eyecatch.height,
+        },
+      ],
     },
     twitter: {
       ...twitterMetadata,
       title: ogpTitle,
       description: pageDesc,
+      images: [eyecatch.url],
     },
   };
   return metadata;

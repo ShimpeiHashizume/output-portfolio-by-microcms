@@ -4,6 +4,7 @@ import styles from "./page.module.css";
 import Image from "next/image";
 import SkillItem from "@/component/SkillItem/SkillItem";
 import { skillProps } from "@/type/type";
+import eyecatch from "/src/images/about.jpg";
 
 import { siteMeta } from "@/lib/constants";
 const { siteTitle, siteUrl } = siteMeta;
@@ -113,6 +114,13 @@ export const metadata = {
     title: ogpTitle,
     description: pageDesc,
     url: ogpUrl,
+    images: [
+      {
+        url: eyecatch.src,
+        width: eyecatch.width,
+        height: eyecatch.height,
+      },
+    ],
   },
   twitter: {
     ...twitterMetadata,
