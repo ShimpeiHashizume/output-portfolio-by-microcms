@@ -12,6 +12,8 @@ const { siteTitle, siteUrl } = siteMeta;
 import { openGraphMetadata, twitterMetadata } from "@/lib/baseMetadata";
 import { extractText } from "@/lib/extractText";
 
+export const revalidate = 3600;
+
 const Detail = async ({ params }: { params: { slug: string } }) => {
   const slug = params.slug;
   const post = await getPostBySlug(slug);
