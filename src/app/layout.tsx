@@ -1,4 +1,4 @@
-// import { Suspense } from "react";
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { Montserrat, Noto_Sans_JP, Source_Code_Pro } from "next/font/google";
 import "./globals.css";
@@ -6,7 +6,7 @@ import Navbar from "@/component/Navbar/Navbar";
 import Footer from "@/component/Footer/Footer";
 import { ThemeProider } from "@/context/ThemeContext";
 import { baseMetadata, openGraphMetadata, twitterMetadata } from "@/lib/baseMetadata";
-// import GoogleAnalitics from "@/component/GoogleAnalitics/GoogleAnalitics";
+import GoogleAnalitics from "@/component/GoogleAnalitics/GoogleAnalitics";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -32,9 +32,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ja">
       <body suppressHydrationWarning={true} className={`${montserrat.variable} ${notojp.variable} ${sourcecodepro.variable}`}>
-        {/* <Suspense>
+        <Suspense>
           <GoogleAnalitics />
-        </Suspense> */}
+        </Suspense>
         <ThemeProider>
           <div className="container">
             <Navbar />
