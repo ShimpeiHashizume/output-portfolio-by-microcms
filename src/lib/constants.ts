@@ -4,7 +4,7 @@ export const siteMeta = {
   siteUrl: "https://output-portfolio-by-microcms.vercel.app/",
   siteLocal: "ja_JP",
   siteType: "website",
-  siteIcon: "/favicon.png",
+  siteIcon: "/src/images/apple-touch-icon.png",
 };
 
 export const eyecatchLocal = {
