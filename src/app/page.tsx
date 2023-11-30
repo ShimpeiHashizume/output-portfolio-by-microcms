@@ -9,7 +9,7 @@ export default async function Home() {
 
   return (
     <div className="mainBlock">
-      <PageTitle title="Output Code" desc="アウトプット用のポートフォリオサイト" />
+      <PageTitle title="Saving Knowledge Code" desc="アウトプット用のポートフォリオサイト" />
       <AllCategories categories={categories} />
       <PostList posts={posts} detailButtonOn />
     </div>

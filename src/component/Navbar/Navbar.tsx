@@ -38,7 +38,7 @@ const Navbar = () => {
       <div className={styles.headerInner}>
         <h1 className={styles.logo}>
           <Link href="/" className={styles.logoText}>
-            OC
+            SKC
           </Link>
         </h1>
         <nav className={styles.navigation}>
