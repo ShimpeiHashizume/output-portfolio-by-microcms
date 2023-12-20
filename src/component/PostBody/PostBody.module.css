@@ -50,6 +50,13 @@
 .stack > *:last-child {
   margin-bottom: 0;
 }
+iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16/9;
+  margin: 40px 0 16px;
+}
 
 @media screen and (max-width: 767px) {
   .stack h1 {
@@ -77,6 +84,9 @@
     margin-top: 24px;
   }
   .stack pre {
+    margin-top: 24px;
+  }
+  iframe {
     margin-top: 24px;
   }
 }
