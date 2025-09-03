@@ -4,12 +4,12 @@ export const programmingLanguage: skillProps[] = [
   {
     id: 1,
     name: "HTML",
-    years: 3,
+    years: 5,
   },
   {
     id: 2,
     name: "CSS",
-    years: 3,
+    years: 5,
   },
   {
     id: 3,
@@ -43,12 +43,12 @@ export const otherTools: skillProps[] = [
   {
     id: 1,
     name: "Github",
-    years: 2,
+    years: 3,
   },
   {
     id: 2,
     name: "Gitlab",
-    years: 2,
+    years: 3,
   },
   {
     id: 3,
